@@ -7,13 +7,15 @@ interface Fast {
 interface TurnOnESP {
     public void Start_ESP();
 }
-public abstract class Auto {
+public abstract class Auto<T>{
     public int doors;
     public int speed;
+    private T number;
 
     public abstract void start();
 
-    public Auto(int doors, int speed) {
+    public Auto(T number, int doors, int speed) {
+        this.number = number;
         this.doors = doors;
         this.speed = speed;
     }
@@ -38,7 +40,7 @@ class Audi extends Auto implements Fast {
     public static int ncap_stars = 4;
 
     public Audi(int doors, int speed, int startVolume) {
-        super(doors, speed);
+        super("bg777bg", doors, speed);
         engineVolume = startVolume;
     }
 
@@ -71,7 +73,7 @@ class Volvo extends Auto implements TurnOnESP{
 
 
     public Volvo (int doors, int speed, int kilometrazh) {
-        super(doors, speed);
+        super("bg456bg", doors, speed);
         kilometrazh_sum = kilometrazh;
     }
 
